@@ -24,6 +24,7 @@ export enum DialogID {
   UpdateLabel = "update-label",
   UpdateLocation = "update-location",
   ItemChangeDetails = "item-table-updater",
+  PageNFC = "page-nfc",
 }
 
 /**

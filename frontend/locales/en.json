@@ -84,6 +84,14 @@
                 "page_url": "Page URL",
                 "qr_tooltip": "Show QR Code"
             },
+            "page_nfc_tag": {
+                "nfc_tooltip": "Write to NFC Tag",
+                "title": "Write NFC Tag",
+                "approach_nfc_tag": "Please approach an NFC tag to write to.",
+                "warning": "Make sure to approach a blank NFC tag to avoid overwriting existing data.",
+                "nfc_writing_not_supported": "NFC tag writing is not supported in this browser.",
+                "nfc_writing_success": "NFC tag written successfully."
+            },
             "password_score": {
                 "password_strength": "Password Strength"
             }
