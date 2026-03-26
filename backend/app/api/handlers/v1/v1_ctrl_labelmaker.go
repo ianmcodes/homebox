@@ -56,7 +56,7 @@ func (ctrl *V1Controller) HandleGetLocationLabel() errchain.HandlerFunc {
 			return err
 		}
 
-		hbURL := GetHBURL(r.Header.Get("Referer"), ctrl.url)
+		hbURL := GetHBURL(r, &ctrl.config.Options, ctrl.url)
 		return generateOrPrint(ctrl, w, r, location.Name, "Homebox Location", fmt.Sprintf("%s/location/%s", hbURL, location.ID))
 	}
 }
@@ -90,7 +90,7 @@ func (ctrl *V1Controller) HandleGetItemLabel() errchain.HandlerFunc {
 			description += fmt.Sprintf("\nLocation: %s", item.Location.Name)
 		}
 
-		hbURL := GetHBURL(r.Header.Get("Referer"), ctrl.url)
+		hbURL := GetHBURL(r, &ctrl.config.Options, ctrl.url)
 		return generateOrPrint(ctrl, w, r, item.Name, description, fmt.Sprintf("%s/item/%s", hbURL, item.ID))
 	}
 }
@@ -103,7 +103,7 @@ func (ctrl *V1Controller) HandleGetItemLabel() errchain.HandlerFunc {
 //	@Param		id		path		string	true	"Asset ID"
 //	@Param		print	query		bool	false	"Print this label, defaults to false"
 //	@Success	200		{string}	string	"image/png"
-//	@Router		/v1/labelmaker/assets/{id} [GET]
+//	@Router		/v1/labelmaker/asset/{id} [GET]
 //	@Security	Bearer
 func (ctrl *V1Controller) HandleGetAssetLabel() errchain.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) error {
@@ -130,7 +130,7 @@ func (ctrl *V1Controller) HandleGetAssetLabel() errchain.HandlerFunc {
 			description += fmt.Sprintf("\nLocation: %s", item.Items[0].Location.Name)
 		}
 
-		hbURL := GetHBURL(r.Header.Get("Referer"), ctrl.url)
+		hbURL := GetHBURL(r, &ctrl.config.Options, ctrl.url)
 		return generateOrPrint(ctrl, w, r, item.Items[0].AssetID.String(), description, fmt.Sprintf("%s/a/%s", hbURL, item.Items[0].AssetID.String()))
 	}
 }
