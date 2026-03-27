@@ -2,6 +2,7 @@
   import { useI18n } from "vue-i18n";
   import { type QueryValue, route } from "../../lib/api/base/urls";
   import PageQRCode from "./PageQRCode.vue";
+  import PageNFC from "./PageNFC.vue";
   import { DialogID } from "@/components/ui/dialog-provider/utils";
   import { toast } from "@/components/ui/sonner";
   import MdiLoading from "~icons/mdi/loading";
@@ -153,6 +154,7 @@
         </Tooltip>
 
         <PageQRCode />
+        <PageNFC />
       </ButtonGroup>
     </TooltipProvider>
   </div>
